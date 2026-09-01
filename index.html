@@ -659,7 +659,7 @@
         <a href="#faq">Dúvidas</a>
       </nav>
 
-      <a href="https://checkoutseguro.info/checkout/cmthzxzjr03v101q11dj8tksh?offer=GGXK54H" class="btn btn-primary">Quero o material</a>
+      <a href="#oferta" class="btn btn-primary">Quero o material</a>
     </div>
   </header>
 
@@ -686,7 +686,7 @@
           </div>
 
           <div class="hero-actions">
-            <a href="https://checkoutseguro.info/checkout/cmthzxzjr03v101q11dj8tksh?offer=GGXK54H" class="btn btn-yellow">Quero acessar as atividades</a>
+            <a href="#oferta" class="btn btn-yellow">Quero acessar as atividades</a>
             <a href="#conteudo" class="btn btn-soft">Ver o que vem no kit</a>
           </div>
 
@@ -900,9 +900,9 @@
           <div class="price"><small>R$</small> 19,90</div>
           <div class="payment-note">pagamento único</div>
 
-          <a href="https://checkoutseguro.info/checkout/cmthzxzjr03v101q11dj8tksh?offer=GGXK54H" class="btn btn-primary" style="width:100%">
+          <button class="btn btn-primary checkout-btn" style="width:100%" type="button">
             Quero receber o material
-          </a>
+          </button>
 
           <div class="secure">🔒 Pagamento seguro • 📩 Produto digital</div>
         </div>
@@ -976,7 +976,7 @@
           <div class="eyebrow">Aprender pode ser mais leve</div>
           <h2>Tenha atividades prontas para usar quando precisar</h2>
           <p>Escolha, imprima e acompanhe a criança praticando conteúdos importantes do 2º ano.</p>
-          <a href="https://checkoutseguro.info/checkout/cmthzxzjr03v101q11dj8tksh?offer=GGXK54H" class="btn btn-yellow">Quero acessar agora</a>
+          <a href="#oferta" class="btn btn-yellow">Quero ver a oferta</a>
         </div>
       </div>
     </section>
@@ -990,14 +990,39 @@
   </footer>
 
   <div class="mobile-buy">
-    <a href="https://checkoutseguro.info/checkout/cmthzxzjr03v101q11dj8tksh?offer=GGXK54H" class="btn btn-yellow">Quero acessar por R$ 19,90</a>
+    <a href="#oferta" class="btn btn-yellow">Quero acessar por R$ 19,90</a>
   </div>
 
   <script>
-    /* Checkout configurado com o link de divulgação. */
+    /*
+      CONFIGURAÇÃO DO CHECKOUT
+      1. Cole seu link real entre as aspas.
+      2. Exemplo:
+         checkoutURL: "https://seu-checkout.com/produto"
+    */
     const CONFIG = {
-      checkoutURL: "https://checkoutseguro.info/checkout/cmthzxzjr03v101q11dj8tksh?offer=GGXK54H"
+      checkoutURL: ""
     };
+
+    document.querySelectorAll(".checkout-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        const url = CONFIG.checkoutURL.trim();
+
+        if (!url) {
+          alert("Configure o link do checkout no final do arquivo, em CONFIG.checkoutURL.");
+          return;
+        }
+
+        try {
+          const parsed = new URL(url);
+          if (!["http:", "https:"].includes(parsed.protocol)) {
+            throw new Error("Protocolo inválido");
+          }
+          window.location.href = parsed.href;
+        } catch {
+          alert("O link configurado no checkout não é válido.");
+        }
+      });
     });
 
     document.querySelectorAll(".faq-q").forEach((button) => {
