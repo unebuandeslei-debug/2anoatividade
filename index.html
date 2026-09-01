@@ -7,6 +7,22 @@
   <meta name="description" content="Kit Leitura Destravada para crianças de 7 a 8 anos do 2º ano. 36 páginas com leitura progressiva, sílabas, dígrafos, rimas, formação de palavras e compreensão.">
   <meta name="theme-color" content="#32185f">
   <title>Kit Leitura Destravada | 2º Ano</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1587471259574864');
+  fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
   <script>document.documentElement.classList.add('js')</script>
   <style>
     :root {
@@ -331,6 +347,12 @@
   </style>
 </head>
 <body>
+  <!-- Meta Pixel Code (noscript) -->
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1587471259574864&ev=PageView&noscript=1"
+    alt=""></noscript>
+  <!-- End Meta Pixel Code (noscript) -->
+
   <div class="announcement">📚 Material digital para o 2º ano • <b>Pagamento único de R$ 19,90</b> • Pronto para imprimir</div>
 
   <header>
@@ -640,5 +662,22 @@
       revealEls.forEach(el => el.classList.add('visible'));
     }
   </script>
+
+  <script>
+    // Meta Pixel: registra intenção de checkout sem impedir o clique.
+    document.addEventListener('click', function(event) {
+      const link = event.target.closest('a.checkout-link');
+      if (!link) return;
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Kit Leitura Destravada 2º Ano',
+          content_category: 'Produto Digital Educacional',
+          value: 19.90,
+          currency: 'BRL'
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
